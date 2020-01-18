@@ -1,6 +1,7 @@
 <h1 style="text-align: center">
 Semana Omnistack 10
-------------
+</h1>
+<h2 style="text-align: center">
 DevRadar
 </h1>
 
@@ -25,7 +26,7 @@ O servidor estará rodando em http://localhost:3333.
 
 
 
-####Rotas
+Rotas
 ------------
 **POST**: Cadastrar Dev - http://localhost:3333/devs (Tipo: JSON)
 
@@ -57,7 +58,7 @@ Exemplo:
 Exemplo:
 http://localhost:3333/search?latitude=-22.8654101&longitude=-42.0484895&techs=ReactJS
 
-###Frontend Web
+Frontend Web
 Utilizando um terminal, navegue até a pasta do backend usando `cd frontend`.
 
 Digite `npm install` e aguarde a instalação das dependências.
@@ -66,7 +67,7 @@ Para executar o frontend, digite `npm run start` ou `yarn start`.
 
 Acesse http://localhost:3000 no seu navegador.
 
-##App mobile
+App mobile
 Utilizando um terminal, navegue até a pasta do aplicativo mobile usando `cd mobile`.
 
 Instale o **Expo** em seu smartphone, ou ignore se estiver usando um emulador.
@@ -75,9 +76,9 @@ Digite `npm run start` ou `yarn start`.
 
 No seu smartphone, faça um scan do QR Code exibido pelo Expo. Se estiver usando um emulador, clique em `Run on Android/iOS device` no site aberto pelo Expo.
 
-##Tecnologias e Dependências
+Tecnologias e Dependências
 
-###Backend
+Backend
 - Node.js
 - express
 - nodemon
@@ -85,11 +86,11 @@ No seu smartphone, faça um scan do QR Code exibido pelo Expo. Se estiver usando
 - axios
 - socket.io
 
-###Frontend Web
+Frontend Web
 - ReactJS
 - axios
 
-###App mobile
+App mobile
 - React Native
 - Expo
 - expo-location
