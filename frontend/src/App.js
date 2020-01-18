@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useAlert } from 'react-alert'
 import api from "./services/api";
 
 import "./global.css";
@@ -9,6 +10,7 @@ import DevForm from "./components/DevForm";
 import DevItem from "./components/DevItem";
 
 function App() {
+  const alert = useAlert()
   const [devs, setDevs] = useState([]);
 
   useEffect(() => {
@@ -24,7 +26,11 @@ function App() {
   async function handleAddDev(data) {
     const response = await api.post("/devs", data);
 
-    setDevs([...devs, response.data]);
+    if (!response.data.error) {
+      setDevs([...devs, response.data]);
+    } else {
+      alert.show(response.data.error);
+    }
   }
 
   return (
