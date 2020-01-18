@@ -18,7 +18,7 @@ Utilizando um terminal, navegue até a pasta do backend usando `cd backend`.
 
 Digite `npm install` e aguarde a instalação das dependências.
 
-Configure a conexão com o banco de dados do MongoDB Atlas no arquivo** src/index.js**
+Configure a conexão com o banco de dados do MongoDB Atlas no arquivo **src/index.js**
 
 Para executar o backend, digite `npm run dev` ou `yarn dev`.
 
