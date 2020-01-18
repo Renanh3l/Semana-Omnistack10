@@ -1,11 +1,11 @@
-<h1 style="text-align: center">
-Semana Omnistack 10
+<h1 align="center">
+Semana Omnistack 10</center>
 </h1>
-<h2 style="text-align: center">
+<h2 align="center">
 DevRadar
-</h1>
+</h2>
 
-Aplicação desenvolvida durante a Semana Omnistack 10.0 da [Rocketseat](https://rocketseat.com.br/ "Rocketseat"), localizando desenvolvedores em um raio de 10km por geolocalização. API construída usando Nodejs, cadastro e visualização de desenvolvedores no frontend usando ReactJS, e app mobile para busca de desenvolvedores por tecnologias desenvolvido com React Native.
+<p align="center">Aplicação desenvolvida durante a Semana Omnistack 10.0 da <a href="https://rocketseat.com.br/" target="_blank">Rocketseat</a>, localizando desenvolvedores em um raio de 10km por geolocalização. API construída usando Nodejs, cadastro e visualização de desenvolvedores no frontend usando ReactJS, e app mobile para busca de desenvolvedores por tecnologias desenvolvido com React Native.</p>
 
 
 ## Executando o projeto
@@ -13,7 +13,7 @@ Aplicação desenvolvida durante a Semana Omnistack 10.0 da [Rocketseat](https:/
 Antes de tudo, faça um clone deste repositório.
 
 
-###Backend
+### Backend
 Utilizando um terminal, navegue até a pasta do backend usando `cd backend`.
 
 Digite `npm install` e aguarde a instalação das dependências.
@@ -78,7 +78,7 @@ No seu smartphone, faça um scan do QR Code exibido pelo Expo. Se estiver usando
 
 Tecnologias e Dependências
 
-Backend
+### Backend
 - Node.js
 - express
 - nodemon
@@ -86,11 +86,11 @@ Backend
 - axios
 - socket.io
 
-Frontend Web
+### Frontend Web
 - ReactJS
 - axios
 
-App mobile
+### App mobile
 - React Native
 - Expo
 - expo-location
