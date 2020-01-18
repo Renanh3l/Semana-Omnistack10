@@ -3,6 +3,8 @@ import {
   StyleSheet,
   Image,
   View,
+  KeyboardAvoidingView,
+  SafeAreaView,
   Text,
   TextInput,
   TouchableOpacity
@@ -11,6 +13,7 @@ import MapView, { Marker, Callout } from "react-native-maps";
 import { MaterialIcons } from "@expo/vector-icons";
 
 import api from "../services/api";
+import { connect, disconnect, subscribeToNewDevs } from "../services/socket";
 
 import {
   requestPermissionsAsync,
@@ -20,7 +23,7 @@ import {
 function Main({ navigation }) {
   const [devs, setDevs] = useState([]);
   const [currentRegion, setCurrentRegion] = useState(null);
-  const [techs, setTechs] = useState('');
+  const [techs, setTechs] = useState("");
 
   useEffect(() => {
     async function loadInitialPosition() {
@@ -44,6 +47,18 @@ function Main({ navigation }) {
     loadInitialPosition();
   }, []);
 
+  useEffect(() => {
+    subscribeToNewDevs(dev => setDevs([...devs, dev]));
+  }, [devs]);
+
+  function setupWebsocket() {
+    disconnect();
+
+    const { latitude, longitude } = currentRegion;
+
+    connect(latitude, longitude, techs);
+  }
+
   async function loadDevs() {
     const { latitude, longitude } = currentRegion;
 
@@ -56,7 +71,7 @@ function Main({ navigation }) {
     });
 
     setDevs(response.data.devs);
-
+    setupWebsocket();
   }
 
   function handleRegionChange(region) {
@@ -108,21 +123,23 @@ function Main({ navigation }) {
         ))}
       </MapView>
 
-      <View style={styles.searchForm}>
-        <TextInput
-          style={styles.searchInput}
-          placeholder="Buscar devs por techs..."
-          placeholderTextColor="#999"
-          autoCapitalize="words"
-          autoCorrect={false}
-          value={techs}
-          onChangeText={setTechs}
-        />
+      <KeyboardAvoidingView keyboardVerticalOffset={100} style={styles.searchContainer} behavior="padding" enabled>
+        <View style={styles.searchForm}>
+          <TextInput
+            style={styles.searchInput}
+            placeholder="Buscar devs por techs..."
+            placeholderTextColor="#999"
+            autoCapitalize="words"
+            autoCorrect={false}
+            value={techs}
+            onChangeText={setTechs}
+          />
 
-        <TouchableOpacity onPress={loadDevs} style={styles.loadButton}>
-          <MaterialIcons name="my-location" size={20} color="#FFF" />
-        </TouchableOpacity>
-      </View>
+          <TouchableOpacity onPress={loadDevs} style={styles.loadButton}>
+            <MaterialIcons name="my-location" size={20} color="#FFF" />
+          </TouchableOpacity>
+        </View>
+      </KeyboardAvoidingView>
     </>
   );
 }
@@ -130,6 +147,11 @@ function Main({ navigation }) {
 const styles = StyleSheet.create({
   map: {
     flex: 1
+  },
+
+  container: {
+    flex: 1,
+    marginBottom: 20
   },
 
   avatar: {
@@ -156,14 +178,15 @@ const styles = StyleSheet.create({
   devTechs: {
     marginTop: 5
   },
-
-  searchForm: {
-    position: "absolute",
-    top: 20,
+  searchContainer: {
+    position: 'absolute',
+    bottom: 20,
     left: 20,
     right: 20,
-    zIndex: 5,
-    flexDirection: "row"
+  },
+
+  searchForm: {
+    flexDirection: 'row',
   },
 
   searchInput: {
