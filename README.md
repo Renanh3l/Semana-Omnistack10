@@ -58,7 +58,7 @@ Exemplo:
 Exemplo:
 http://localhost:3333/search?latitude=-22.8654101&longitude=-42.0484895&techs=ReactJS
 
-Frontend Web
+### Frontend Web
 Utilizando um terminal, navegue até a pasta do backend usando `cd frontend`.
 
 Digite `npm install` e aguarde a instalação das dependências.
@@ -76,7 +76,7 @@ Digite `npm run start` ou `yarn start`.
 
 No seu smartphone, faça um scan do QR Code exibido pelo Expo. Se estiver usando um emulador, clique em `Run on Android/iOS device` no site aberto pelo Expo.
 
-Tecnologias e Dependências
+## Tecnologias e Dependências
 
 ### Backend
 - Node.js
