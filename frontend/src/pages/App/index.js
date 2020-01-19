@@ -47,8 +47,8 @@ function App() {
     <div id="app">
       <header className="logoHeader">
         <h2>Semana</h2>
-        <div class="headerContainer">
-          <h1 class="omni">Omni</h1><h1>stack 10.0</h1>
+        <div className="headerContainer">
+          <h1 className="omni">Omni</h1><h1>stack 10.0</h1>
         </div>
       </header>
 
