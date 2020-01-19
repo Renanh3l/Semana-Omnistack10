@@ -32,12 +32,12 @@ Rotas
 
 Exemplo:
 ```json
-    {
+{
     	"github_username": "Renanh3l",
     	"techs": "ReactJS, NodeJS",
     	"latitude": -22.8722697,
     	"longitude": -42.0306995
-    }
+}
 ```
 
 **POST**: Atualizar Dev - http://localhost:3333/update (Tipo: JSON)
@@ -48,6 +48,15 @@ Exemplo:
 	"github_username":"renanh3l",
 	"name": "Renan Brazil",
 	"techs": "ReactJS, PHP"
+}
+```
+
+**POST**: Deletar Dev - http://localhost:3333/delete (Tipo: JSON)
+
+Exemplo:
+```json
+{
+	"github_username":"renanh3l"
 }
 ```
 
@@ -89,6 +98,8 @@ No seu smartphone, faça um scan do QR Code exibido pelo Expo. Se estiver usando
 ### Frontend Web
 - ReactJS
 - axios
+- react-router-dom
+- react-icons
 - [react-alert](https://github.com/schiehll/react-alert)
 
 ### App mobile
