@@ -89,6 +89,7 @@ No seu smartphone, faça um scan do QR Code exibido pelo Expo. Se estiver usando
 ### Frontend Web
 - ReactJS
 - axios
+- [react-alert](https://github.com/schiehll/react-alert)
 
 ### App mobile
 - React Native
