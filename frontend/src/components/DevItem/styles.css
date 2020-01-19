@@ -49,3 +49,16 @@ li.dev-item a {
 li.dev-item a:hover {
     color: #5a26a6;
 }
+
+
+.userCommands {
+    float: right;
+}
+
+.edit-user {
+    margin-right: 10px;
+}
+
+.edit-user, .delete-user {
+    cursor: pointer;
+}

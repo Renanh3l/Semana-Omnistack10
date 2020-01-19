@@ -33,6 +33,19 @@ function App() {
     }
   }
 
+  async function handleDeleteDev(dev) {
+    console.log('chegamos fr');
+    const response = await api.post('/delete', dev);
+
+    if (!response.data.error) {
+      alert.show(response.data.message);
+      setDevs(devs.filter(x => x.github_username !== dev.github_username));
+    } else {
+      alert.show(response.data.error);
+    }
+    
+  }
+
   return (
     <div id="app">
       <aside>
@@ -43,7 +56,7 @@ function App() {
       <main>
         <ul>
           {devs.map(dev => (
-            <DevItem key={dev._id} dev={dev} />
+            <DevItem onDelete={handleDeleteDev} key={dev._id} dev={dev} />
           ))}
         </ul>
       </main>

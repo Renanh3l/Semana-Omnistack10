@@ -98,5 +98,18 @@ module.exports = {
     }
 
     return res.json({ dev });
+  },
+
+  async delete(req, res) {
+    const { github_username } = req.body;
+
+    let dev = await Dev.findOne({ github_username });
+
+    if (dev) {
+      dev = await Dev.deleteOne({github_username});
+      return res.json({"message": "Dev deletado!"})
+    } else {
+      return res.json({ error: "Dev não encontrado" });
+    }
   }
 };
